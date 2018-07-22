@@ -64,7 +64,7 @@ namespace CodeSnippets
             {
                 RemoveThing();
                 DisplayKey(_keyIndex);
-                _keyIndex++;
+                _keyIndex = ++_keyIndex % _filteredSnippets.Count;
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
@@ -72,7 +72,7 @@ namespace CodeSnippets
             {
                 _typedString += e.KeyCode.ToString();
                 _filteredSnippets = _snippets
-                    .Where(x => x.Value.ToLower().Contains(_typedString.ToLower()))
+                    .Where(x => x.Key.ToLower().Contains(_typedString.ToLower()))
                     .ToList();
             }
         }
@@ -81,6 +81,7 @@ namespace CodeSnippets
         {
             var snippet = _filteredSnippets[index];
             textBox.Text = textBox.Text.Insert(textBox.SelectionStart, snippet.Key);
+            textBox.SelectionStart += snippet.Key.Length;
         }
 
         private void RemoveThing()
