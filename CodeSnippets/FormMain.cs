@@ -125,6 +125,12 @@ namespace CodeSnippets
             var snippetDatabaseMethods = new SnippetDatabaseMethods();
             _snippets = await snippetDatabaseMethods.GetForLanguage(selectedLanaguage);
         }
+
+        private void buttonNewLanguage_Click(object sender, EventArgs e)
+        {
+            var formAddEditLanguage = new FormAddEditLanguage();
+            formAddEditLanguage.Show();
+        }
     }
 
     public static class KeyboardHelper

@@ -30,6 +30,7 @@
         {
             this.buttonSave = new System.Windows.Forms.Button();
             this.textBoxLanguage = new System.Windows.Forms.TextBox();
+            this.listBoxLanguages = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -40,6 +41,7 @@
             this.buttonSave.TabIndex = 0;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // textBoxLanguage
             // 
@@ -48,15 +50,25 @@
             this.textBoxLanguage.Size = new System.Drawing.Size(211, 20);
             this.textBoxLanguage.TabIndex = 1;
             // 
+            // listBoxLanguages
+            // 
+            this.listBoxLanguages.FormattingEnabled = true;
+            this.listBoxLanguages.Location = new System.Drawing.Point(12, 67);
+            this.listBoxLanguages.Name = "listBoxLanguages";
+            this.listBoxLanguages.Size = new System.Drawing.Size(212, 134);
+            this.listBoxLanguages.TabIndex = 2;
+            // 
             // FormAddEditLanguage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(236, 67);
+            this.ClientSize = new System.Drawing.Size(236, 215);
+            this.Controls.Add(this.listBoxLanguages);
             this.Controls.Add(this.textBoxLanguage);
             this.Controls.Add(this.buttonSave);
             this.Name = "FormAddEditLanguage";
             this.Text = "FormAddEditLanguage";
+            this.Load += new System.EventHandler(this.FormAddEditLanguage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,5 +78,6 @@
 
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.TextBox textBoxLanguage;
+        private System.Windows.Forms.ListBox listBoxLanguages;
     }
 }

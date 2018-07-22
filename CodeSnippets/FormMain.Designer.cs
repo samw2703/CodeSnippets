@@ -52,6 +52,7 @@
             this.buttonNewLanguage.TabIndex = 1;
             this.buttonNewLanguage.Text = "Manage Languages";
             this.buttonNewLanguage.UseVisualStyleBackColor = true;
+            this.buttonNewLanguage.Click += new System.EventHandler(this.buttonNewLanguage_Click);
             // 
             // textBox
             // 

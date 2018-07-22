@@ -36,16 +36,15 @@ WHERE
             return reader.DataReaderToList<Language>().First();
         }
 
-        public void Post(Language language)
+        public async Task Post(Language language)
         {
             const string sql = @"
-SELECT
-	[Id],
-	[Value]
-FROM
-	[Languages]
-WHERE
-    Id = @Id";
+INSERT INTO [Languages]
+    ([Value])
+    VALUES(@Value)
+";
+            var sqlHelper = new SqlHelper();
+            await sqlHelper.ExecuteNonQueryAsync(sql, new SqlParameter("@Value", language.Value));
         }
 
         public void Put(int Id, Language language)
