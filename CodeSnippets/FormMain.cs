@@ -19,6 +19,7 @@ namespace CodeSnippets
         private List<Snippet> _filteredSnippets;
         private string _typedString;
         private int _keyIndex;
+        private Snippet _currentSnippet;
 
         public FormMain()
         {
@@ -26,6 +27,7 @@ namespace CodeSnippets
             _languages = new List<Language>();
             _snippets = new List<Snippet>();
             _filteredSnippets = new List<Snippet>();
+            _currentSnippet = new Snippet();
         }
 
         private async Task PopulateLanguageDropdown()
@@ -58,7 +60,9 @@ namespace CodeSnippets
         {
             if (KeyboardHelper.IsKeyDown(Key.LeftCtrl) && e.KeyCode == Keys.Tab)
             {
-                e.Handled = false;
+                RemoveThing();
+                DisplayValue();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.Tab)
             {
@@ -75,13 +79,31 @@ namespace CodeSnippets
                     .Where(x => x.Key.ToLower().Contains(_typedString.ToLower()))
                     .ToList();
             }
+            else
+            {
+                Reset();
+            }
+        }
+
+        private void Reset()
+        {
+            _filteredSnippets = new List<Snippet>();
+            _currentSnippet = new Snippet();
+            _keyIndex = 0;
+            _typedString = string.Empty;
+        }
+
+        private void DisplayValue()
+        {
+            textBox.Text = textBox.Text.Insert(textBox.SelectionStart, _currentSnippet.Value);
+            textBox.SelectionStart += _currentSnippet.Value.Length;
         }
 
         private void DisplayKey(int index)
         {
-            var snippet = _filteredSnippets[index];
-            textBox.Text = textBox.Text.Insert(textBox.SelectionStart, snippet.Key);
-            textBox.SelectionStart += snippet.Key.Length;
+            _currentSnippet = _filteredSnippets[index];
+            textBox.Text = textBox.Text.Insert(textBox.SelectionStart, _currentSnippet.Key);
+            textBox.SelectionStart += _currentSnippet.Key.Length;
         }
 
         private void RemoveThing()

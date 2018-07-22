@@ -48,9 +48,9 @@
             // 
             this.buttonNewLanguage.Location = new System.Drawing.Point(216, 12);
             this.buttonNewLanguage.Name = "buttonNewLanguage";
-            this.buttonNewLanguage.Size = new System.Drawing.Size(92, 23);
+            this.buttonNewLanguage.Size = new System.Drawing.Size(116, 23);
             this.buttonNewLanguage.TabIndex = 1;
-            this.buttonNewLanguage.Text = "New Language";
+            this.buttonNewLanguage.Text = "Manage Languages";
             this.buttonNewLanguage.UseVisualStyleBackColor = true;
             // 
             // textBox
@@ -58,25 +58,25 @@
             this.textBox.Location = new System.Drawing.Point(12, 39);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(394, 287);
+            this.textBox.Size = new System.Drawing.Size(442, 287);
             this.textBox.TabIndex = 2;
             this.textBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             this.textBox.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox_PreviewKeyDown);
             // 
             // buttonNewSnippet
             // 
-            this.buttonNewSnippet.Location = new System.Drawing.Point(314, 12);
+            this.buttonNewSnippet.Location = new System.Drawing.Point(338, 12);
             this.buttonNewSnippet.Name = "buttonNewSnippet";
-            this.buttonNewSnippet.Size = new System.Drawing.Size(92, 23);
+            this.buttonNewSnippet.Size = new System.Drawing.Size(116, 23);
             this.buttonNewSnippet.TabIndex = 3;
-            this.buttonNewSnippet.Text = "New Snippet";
+            this.buttonNewSnippet.Text = "Manage Snippets";
             this.buttonNewSnippet.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 334);
+            this.ClientSize = new System.Drawing.Size(468, 334);
             this.Controls.Add(this.buttonNewSnippet);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.buttonNewLanguage);
