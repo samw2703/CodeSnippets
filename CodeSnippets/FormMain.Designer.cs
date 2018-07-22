@@ -72,6 +72,7 @@
             this.buttonNewSnippet.TabIndex = 3;
             this.buttonNewSnippet.Text = "Manage Snippets";
             this.buttonNewSnippet.UseVisualStyleBackColor = true;
+            this.buttonNewSnippet.Click += new System.EventHandler(this.buttonNewSnippet_Click);
             // 
             // FormMain
             // 

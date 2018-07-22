@@ -42,5 +42,22 @@ WHERE
             var reader = await sqlHelper.ExecuteReaderAsync(sql, new SqlParameter("@LanguageId", language.Id));
             return reader.DataReaderToList<Snippet>();
         }
+
+        public async Task Post(Snippet snippet)
+        {
+            var sql = @"
+INSERT INTO [Snippets]
+    ([Key], [Value], [UsedCount], [LanguageId])
+    VALUES(@Key, @Value, 0, @LanguageId)
+";
+            var sqlHelper = new SqlHelper();
+            await sqlHelper.ExecuteNonQueryAsync(sql,
+                new SqlParameter[]
+                {
+                    new SqlParameter("@Key", snippet.Key),
+                    new SqlParameter("@Value", snippet.Value),
+                    new SqlParameter("@LanguageId", snippet.LanguageId)
+                });
+        }
     }
 }

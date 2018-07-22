@@ -79,6 +79,8 @@ namespace CodeSnippets
                     .Where(x => x.Key.ToLower().Contains(_typedString.ToLower()))
                     .ToList();
             }
+            else if (e.KeyCode == Keys.ControlKey)
+                return;
             else
             {
                 Reset();
@@ -130,6 +132,12 @@ namespace CodeSnippets
         {
             var formAddEditLanguage = new FormAddEditLanguage();
             formAddEditLanguage.Show();
+        }
+
+        private void buttonNewSnippet_Click(object sender, EventArgs e)
+        {
+            var formAddEditSnippet = new FormAddEditSnippet();
+            formAddEditSnippet.Show();
         }
     }
 

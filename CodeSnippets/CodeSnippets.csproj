@@ -81,6 +81,9 @@
     <EmbeddedResource Include="FormAddEditLanguage.resx">
       <DependentUpon>FormAddEditLanguage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddEditSnippet.resx">
+      <DependentUpon>FormAddEditSnippet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
