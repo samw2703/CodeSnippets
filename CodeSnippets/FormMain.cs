@@ -58,7 +58,9 @@ namespace CodeSnippets
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (KeyboardHelper.IsKeyDown(Key.LeftCtrl) && e.KeyCode == Keys.Tab)
+            if (_filteredSnippets.Count == 0)
+                return;
+            else if (KeyboardHelper.IsKeyDown(Key.LeftCtrl) && e.KeyCode == Keys.Tab)
             {
                 RemoveThing();
                 DisplayValue();
