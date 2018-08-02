@@ -24,6 +24,14 @@ namespace CodeSnippets
             InitializeComponent();
         }
 
+        public event EventHandler SnippetAddedOrEdited;
+
+        protected virtual void OnSnippetAddedOrEdited(EventArgs e)
+        {
+            if (SnippetAddedOrEdited != null)
+                SnippetAddedOrEdited(this, e);
+        }
+
         private async void FormAddEditSnippet_Load(object sender, EventArgs e)
         {
             await GetLanguages();
