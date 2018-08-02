@@ -23,6 +23,14 @@ namespace CodeSnippets
             InitializeComponent();
         }
 
+        public event EventHandler LanguageAddedOrEdited;
+
+        protected virtual void OnLanguageAddedOrEdited(EventArgs e)
+        {
+            if (LanguageAddedOrEdited != null)
+                LanguageAddedOrEdited(this, e);
+        }
+
         private async Task<List<Language>> GetLanguages()
         {
             var languageDatabaseMethods = new LanguageDatabaseMethods();
@@ -51,6 +59,7 @@ namespace CodeSnippets
             await languageDatabaseMethods.Post(langauge);
             FormAddEditLanguage_Load(new Object(), new EventArgs());
             listBoxLanguages.Items.Clear();
+            OnLanguageAddedOrEdited(new EventArgs());
         }
     }
 

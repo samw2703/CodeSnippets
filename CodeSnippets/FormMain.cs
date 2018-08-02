@@ -32,6 +32,7 @@ namespace CodeSnippets
 
         private async Task PopulateLanguageDropdown()
         {
+            comboBoxLanguage.Items.Clear();
             _languages = await GetLanguages();
             foreach (var language in _languages)
             {
@@ -130,9 +131,10 @@ namespace CodeSnippets
             _snippets = await snippetDatabaseMethods.GetForLanguage(selectedLanaguage);
         }
 
-        private void buttonNewLanguage_Click(object sender, EventArgs e)
+        private async void buttonNewLanguage_Click(object sender, EventArgs e)
         {
             var formAddEditLanguage = new FormAddEditLanguage();
+            formAddEditLanguage.LanguageAddedOrEdited += async (s, ev) => await PopulateLanguageDropdown();
             formAddEditLanguage.Show();
         }
 
